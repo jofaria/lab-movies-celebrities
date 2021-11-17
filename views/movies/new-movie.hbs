@@ -9,8 +9,16 @@
   <label>Plot: </label>
   <input type="text" name="plot" />
   <br />
+
   <label>Cast: </label>
-  <input type="text" name="" />
+
+  <select name="cast" multiple>
+    <option>Hardcoded example</option>
+    {{#each celebList}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
   <br />
   <button type="submit">Add</button>
 </form>

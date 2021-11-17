@@ -21,13 +21,13 @@ router.get("/celebrities", (req, res) => {
     });
 });
 
-// create a celebrity
+// create a celebrity GET
 
-router.get("/celebrities/new-celebrity", (req, res) => {
+router.get("/celebrities/create", (req, res) => {
   res.render("celebrities/new-celebrity");
 });
 
-//
+// create a celebrity POST
 
 router.post("/celebrities/create", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
@@ -38,8 +38,8 @@ router.post("/celebrities/create", (req, res) => {
     .then((createdCelebrity) => {
       res.redirect("/");
     })
-    .catch(() => {
-      console.log("creation did not work :>>");
+    .catch((err) => {
+      console.log(err);
       res.render("celebrities/new-celebrity");
     });
 });
